@@ -1,12 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const isActive = (path) => {
+    return location.pathname === path;
   };
 
   return (
@@ -20,17 +25,17 @@ const Navbar = () => {
             </div>
             
             <div className="nav-links-desktop">
-              <Link to="/" className="nav-link">
+              <Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}>
                 Home
               </Link>
-              <Link to="/recipe-finder" className="nav-link">
+              <Link to="/recipe-finder" className={`nav-link ${isActive('/recipe-finder') ? 'active' : ''}`}>
                 Recipe Finder
               </Link>
-              <Link to="/grocery-list" className="nav-link">
-                Grocery List
-              </Link>
-              <Link to="/meal-planner" className="nav-link">
+              <Link to="/meal-planner" className={`nav-link ${isActive('/meal-planner') ? 'active' : ''}`}>
                 Meal Planner
+              </Link>
+              <Link to="/grocery-list" className={`nav-link ${isActive('/grocery-list') ? 'active' : ''}`}>
+                Grocery List
               </Link>
             </div>
 
@@ -59,17 +64,17 @@ const Navbar = () => {
           </div>
 
           <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-            <Link to="/" className="mobile-nav-link">
+            <Link to="/" className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`}>
               Home
             </Link>
-            <Link to="/recipe-finder" className="mobile-nav-link">
+            <Link to="/recipe-finder" className={`mobile-nav-link ${isActive('/recipe-finder') ? 'active' : ''}`}>
               Recipe Finder
             </Link>
-            <Link to="/grocery-list" className="mobile-nav-link">
-              Grocery List
-            </Link>
-            <Link to="/meal-planner" className="mobile-nav-link">
+            <Link to="/meal-planner" className={`mobile-nav-link ${isActive('/meal-planner') ? 'active' : ''}`}>
               Meal Planner
+            </Link>
+            <Link to="/grocery-list" className={`mobile-nav-link ${isActive('/grocery-list') ? 'active' : ''}`}>
+              Grocery List
             </Link>
           </div>
         </div>
