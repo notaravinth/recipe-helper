@@ -1,0 +1,123 @@
+/* Navbar styles */
+.nav-spacer {
+  height: 64px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+/* Brand/Logo styles */
+.nav-brand a {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+/* Desktop navigation links */
+.nav-links-desktop {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #666;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #333;
+}
+
+/* Mobile menu button */
+.mobile-menu-button {
+  display: none;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+}
+
+.mobile-menu-button:hover {
+  color: #333;
+}
+
+.hamburger-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  padding: 0.5rem 0;
+  background-color: white;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #666;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.mobile-nav-link:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav-links-desktop {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .mobile-menu.active {
+    display: block;
+  }
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+} 
